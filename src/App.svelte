@@ -1,7 +1,11 @@
 <script>
+import { Button, Icon } from "sveltestrap";
 </script>
 
-<main />
+<main>
+  <Button color="primary">Test</Button>
+  <Button color="primary"><Icon name="layout-sidebar-inset-reverse" /></Button>
+</main>
 
 <style>
 main {
