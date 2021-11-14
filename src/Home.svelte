@@ -37,7 +37,7 @@ function navigateToSignup() {
 </script>
 
 <div class="grid-container">
-  <div class="grid-item" id="dropdown">
+  <div class="grid-item-1" id="dropdown">
     <ButtonDropdown>
       <DropdownToggle color="primary" caret>Profile</DropdownToggle>
       <DropdownMenu>
@@ -48,23 +48,8 @@ function navigateToSignup() {
       </DropdownMenu>
     </ButtonDropdown>
   </div>
-  <div class="grid-item" id="topnav">
+  <div class="grid-item-1" id="topnav">
     <input type="text" placeholder="Search.." />
-  </div>
-  <div class="grid-item" id="join">
-    <Button color="danger" on:click={toggle}>Join Code</Button>
-    <Modal isOpen={open} {toggle}>
-      <ModalBody>
-        <input type="text" placeholder="Search.." />
-      </ModalBody>
-      <ModalFooter>
-        <Button
-          color="primary"
-          on:click={(addPrivilege("", ""), navigateToEvent(getEventID("")))}
-          >Join</Button>
-        <Button color="secondary" on:click={toggle}>Cancel</Button>
-      </ModalFooter>
-    </Modal>
   </div>
 </div>
 
@@ -96,10 +81,7 @@ function navigateToSignup() {
 </div>
 
 <style>
-/* Add a black background color to the top navigation bar */
 #topnav {
-  margin-top: 2rem;
-  margin-left: 2rem;
   overflow: hidden;
   border: black;
 }
@@ -126,13 +108,7 @@ function navigateToSignup() {
 }
 
 #dropdown {
-  margin-top: 2rem;
-  margin-right: 2rem;
   float: right;
-}
-
-#join {
-  margin-top: 0;
 }
 
 .recommended {
