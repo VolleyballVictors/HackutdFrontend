@@ -12,24 +12,22 @@ import {
 } from "sveltestrap";
 </script>
 
-<div>
-  <ul>
-    <li class="dropdown">
-      <ButtonDropdown>
-        <DropdownToggle color="primary" caret>:</DropdownToggle>
-        <DropdownMenu>
-          <DropdownItem>Some Action</DropdownItem>
-          <DropdownItem>Foo Action</DropdownItem>
-          <DropdownItem>Bar Action</DropdownItem>
-          <DropdownItem>Quo Action</DropdownItem>
-        </DropdownMenu>
-      </ButtonDropdown>
-    </li>
-    <li class="topnav">
-      <input type="text" placeholder="Search.." />
-    </li>
-    <li>Home</li>
-  </ul>
+<div class="grid-container">
+  <div class="grid-item" id="dropdown">
+    <ButtonDropdown>
+      <DropdownToggle color="primary" caret>:</DropdownToggle>
+      <DropdownMenu>
+        <DropdownItem>Some Action</DropdownItem>
+        <DropdownItem>Foo Action</DropdownItem>
+        <DropdownItem>Bar Action</DropdownItem>
+        <DropdownItem>Quo Action</DropdownItem>
+      </DropdownMenu>
+    </ButtonDropdown>
+  </div>
+  <div class="grid-item" id="topnav">
+    <input type="text" placeholder="Search.." />
+  </div>
+  <div class="grid-item">Home</div>
 </div>
 
 <div class="ListContainer">
@@ -48,13 +46,13 @@ import {
 
 <style>
 /* Add a black background color to the top navigation bar */
-.topnav {
+#topnav {
   overflow: hidden;
   border: black;
 }
 
 /* Style the search box inside the navigation bar */
-.topnav input[type="text"] {
+#topnav input[type="text"] {
   float: left;
   padding: 6px;
   border: none;
@@ -66,7 +64,7 @@ import {
 
 /* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
 @media screen and (max-width: 600px) {
-  .topnav input[type="text"] {
+  #topnav input[type="text"] {
     float: none;
     display: block;
     text-align: left;
@@ -75,7 +73,7 @@ import {
     padding: 14px;
     color: black;
   }
-  .topnav input[type="text"] {
+  #topnav input[type="text"] {
     border: 1px solid rgb(14, 13, 13);
   }
 }
@@ -86,7 +84,7 @@ import {
   overflow-y: auto;
 }
 
-.dropdown {
+#dropdown {
   float: right;
 }
 </style>
