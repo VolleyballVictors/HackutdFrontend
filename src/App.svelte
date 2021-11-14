@@ -5,7 +5,25 @@ import Test from "./Test.svelte";
 import Event from "./Event.svelte";
 import Login from "./Login.svelte";
 import Signup from "./Signup.svelte";
+import { wrap } from "svelte-spa-router/wrap";
 import Profile from "./Profile.svelte";
+import Team from "./Team.svelte";
+
+import { User } from "./store/User.js";
+
+let user = {};
+
+User.subscribe((value) => {
+  user = value;
+});
+
+async function isLoggedIn() {
+  if (user.email && user.email != "") {
+    return true;
+  } else {
+    return false;
+  }
+}
 </script>
 
 <main>
@@ -20,11 +38,24 @@ import Profile from "./Profile.svelte";
     <Router
       routes={{
         "/": Home,
-        "/test": Test,
-        "/event/:eventid": Event,
         "/login": Login,
         "/signup": Signup,
         "/profile": Profile,
+        "/event/:eventid/team/:teamid": wrap({
+          component: Team,
+          conditions: [
+            async (detail) => {
+              const response = await isLoggedIn();
+              if (!response) {
+                window.location = "/#/login";
+                return false;
+              } else {
+                return true;
+              }
+            },
+          ],
+        }),
+        "/event/:eventid": Event,
       }} />
   </div>
 </main>

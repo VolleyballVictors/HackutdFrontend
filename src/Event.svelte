@@ -9,6 +9,7 @@ import { onMount } from "svelte";
 import { getEvent } from "./helper/API";
 import { getDateString } from "./helper/date";
 import Project from "./components/Project.svelte";
+import { validate_component } from "svelte/internal";
 onMount(async () => {
   if (params.eventid) {
     event = await getEvent(params.eventid);
@@ -46,7 +47,8 @@ onMount(async () => {
         description={team.description}
         lookingfor={team.looking_for}
         student_skills={team.student_skills}
-        maxteamsize={event.maxteamsize} />
+        maxteamsize={event.maxteamsize}
+        eventid={event.event_id} />
     {/each}
   </div>
 {/if}

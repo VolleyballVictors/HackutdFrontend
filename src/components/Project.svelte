@@ -5,6 +5,7 @@ export let description;
 export let lookingfor;
 export let student_skills;
 export let maxteamsize = -1;
+export let eventid;
 import { ListGroup, ListGroupItem } from "sveltestrap";
 import {
   Button,
@@ -17,6 +18,10 @@ import {
   CardTitle,
 } from "sveltestrap";
 import Chips from "./chips.svelte";
+
+function joinTeam() {
+  window.location = "/#/event/" + eventid + "/team/" + team_id;
+}
 </script>
 
 <Card class="mb-3 card">
@@ -45,7 +50,11 @@ import Chips from "./chips.svelte";
       {/each}
     </ListGroup>
   </CardBody>
-  <CardFooter><Button>Join</Button></CardFooter>
+  <CardFooter
+    ><Button
+      disabled={teammates.length / maxteamsize === 1}
+      on:click|once={joinTeam}>Join</Button
+    ></CardFooter>
 </Card>
 
 <style>
