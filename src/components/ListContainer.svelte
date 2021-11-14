@@ -6,7 +6,10 @@ export let eventItems;
 <div class="ListContainer">
   {JSON.stringify(eventItems)}
   {#each eventItems as item}
-    <ListComponent title={item.title} description={item.description} />
+    <ListComponent
+      title={item.title}
+      description={item.description}
+      event_id={item.event_id} />
   {/each}
 </div>
 

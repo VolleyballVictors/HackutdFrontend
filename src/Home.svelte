@@ -2,7 +2,12 @@
 import { Button, Icon } from "sveltestrap";
 import Card from "./components/Card.svelte";
 import ListComponent from "./components/ListComponent.svelte";
-import { events } from "./sample/events";
+import { getPublicEvents } from "./helper/API.js";
+let events = [];
+import { onMount } from "svelte";
+onMount(async () => {
+  events = await getPublicEvents();
+});
 
 import {
   ButtonDropdown,
@@ -15,16 +20,9 @@ import { Modal, ModalBody, ModalFooter, ModalHeader } from "sveltestrap";
 let open = false;
 const toggle = () => (open = !open);
 
-function getEventID(pin) {
-  //events["pin" == pin];
-  return "undefined";
-}
-function addPrivilege(user, eventID) {
-  //give user access to the private event
-}
 function navigateToEvent(eventID) {
   //goto eventID page
-  window.location = "/#/event/" + "undefined";
+  window.location = "/#/event/" + eventID;
 }
 
 function navigateToLogin() {
@@ -58,7 +56,10 @@ function navigateToSignup() {
 <div class="recommended">
   Recommended
   {#each events as item}
-    <ListComponent title={item.title} description={item.description} />
+    <ListComponent
+      title={item.title}
+      description={item.description}
+      event_id={item.event_id} />
   {/each}
 </div>
 
@@ -68,14 +69,20 @@ function navigateToSignup() {
   <div class="grid-item" id="events">
     Events
     {#each events as item}
-      <ListComponent title={item.title} description={item.description} />
+      <ListComponent
+        title={item.title}
+        description={item.description}
+        event_id={item.event_id} />
     {/each}
   </div>
 
   <div class="grid-item" id="projects">
     Projects
     {#each events as item}
-      <ListComponent title={item.title} description={item.description} />
+      <ListComponent
+        title={item.title}
+        description={item.description}
+        event_id={item.event_id} />
     {/each}
   </div>
 </div>
