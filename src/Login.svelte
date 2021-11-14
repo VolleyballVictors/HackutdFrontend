@@ -72,7 +72,7 @@ margin-right: 50rem;
 </div>
 
 
-<a href="/#/Test">
+<a href="/">
   Login
 </a>
 
