@@ -8,41 +8,84 @@
 
 </script>
 
+
+
+<style>
+
+body{
+  margin-left: 25rem;
+  margin-right: 10rem;
+  height: 100%;
+  margin: 0;
+}
+
+h3{
+  text-align: left;
+  font-size: 1.5em;
+  margin-top: 2em;
+}
+
+h1{
+  font-size: 4em;
+
+}
+
+a:link, a:visited {
+  background-color: #008CBA;
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  text-align: left;
+  text-decoration: none;
+  display: block;
+  position: absolute;
+  justify-content: flex-start;
+  border-radius:12px;
+}
+a:hover, a:active {
+  background-color: #f44336;
+}
+
+.SignupPage{
+margin-top: 10rem;
+padding-top: 0rem;
+margin-bottom:10rem;
+margin-left: 20rem;
+margin-right: 20rem;
+}
+
+.form-floating{
+  margin-top: 3rem;
+  margin-bottom:3rem;
+  color: grey;
+    //height: 100px;
+}
+
+</style>
+
+<div class="SignupPage">
+
 <h1 style = "text-align:left">
-  Sign up
+  create your account
 </h1>
 
 
-<Form>
- <FormGroup>
-   <Label for="exampleEmail">Email</Label>
-   <Input
-     type="email"
-     name="email"
-     id="exampleEmail"
-     placeholder=""
-   />
- </FormGroup>
+<div class="form-floating">
+  <input type="email" class="form-control" id="inputEmail" placeholder="name@example.com">
+  <label for="floatingInput">email address</label>
+</div>
+<div class="form-floating">
+  <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+  <label for="floatingPassword">password</label>
+</div>
 
- <FormGroup>
-   <Label for="examplePassword">Password</Label>
-   <Input
-     type="password"
-     name="password"
-     id="examplePassword"
-     placeholder="Password must be 8 characters long."
-   />
- </FormGroup>
+<div class="form-floating">
+  <input type="Username" class="form-control" id="inputUsername" placeholder="Username">
+    <label for="floatingInput">username</label>
+</div>
 
- <FormGroup>
-  <Label for="exampleUsername">Username</Label>
-  <Input
-    type = "Username"
-    name = "Username"
-    id = "exampleUser"
-    placeHolder = "......"
-  />
- </FormGroup>
-</Form>
+<a href="/#/">
+  Let's go!
+</a>
 
-<button type="button" class="btn btn-primary btn-lg disabled">Let's go!</button>
+</div>

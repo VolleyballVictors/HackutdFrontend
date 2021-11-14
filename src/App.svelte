@@ -14,15 +14,19 @@ import Profile from "./Profile.svelte";
   <nav>
     <a href="/">Home</a>
     <a href="/#/Test">Test</a>
+    <a href="/#/Signup">Sign Up!</a>
     <a href="/#/event/HackUTD">HackUTD event page</a>
+    <a href="/#/Profile">Profile</a>
   </nav>
-  outside the router
+
   <div class="Router">
     <Router
       routes={{
-        "/": Signup,
+        "/": Login,
         "/test": Test,
         "/event/:eventid": Event,
+        "/signup": Signup,
+        "/Profile": Profile,
 
       }} />
   </div>
@@ -31,10 +35,16 @@ import Profile from "./Profile.svelte";
 <style>
 main {
   text-align: center;
-  padding: 1em;
-  max-width: 240px;
-  margin: 0 auto;
-  background-color: darkgrey;
+  padding: 0em;
+  width: 100%;
+}
+
+nav {
+  border-bottom: 1px solid grey;
+  width:100%;
+  margin: 0 0;
+  margin-bottom: 0rem;
+  padding: 0.5rem 0rem;
 }
 
 @media (min-width: 640px) {
@@ -44,8 +54,9 @@ main {
 }
 
 .Router {
-  border: 1px solid black;
-  padding: 1rem;
+margin-top: 0rem;
+padding-top: 0rem;
+  //padding: 1rem;
   background-color: white;
 }
 </style>

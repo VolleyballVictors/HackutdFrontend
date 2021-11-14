@@ -1,7 +1,27 @@
 
-<h1 style = "text-align:left">
-  Hello!
-</h1>
+<style>
+h1
+{
+  margin-top: 0.67em;
+  font-weight: 90;
+  text-align: left;
+  margin-bottom: 1em;
+
+}
+
+p
+{
+  margin-bottom: 1.5em;
+  margin-top:1em;
+
+}
+</style>
+
+
+
+<h1 class="display-4">Hello!</h1>
+
+
 
 <p class="text-start">Tell us a little bit about yourself... </p>
 
