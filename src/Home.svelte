@@ -26,6 +26,14 @@ function navigateToEvent(eventID) {
   //goto eventID page
   window.location = "/#/event/" + "undefined";
 }
+
+function navigateToLogin() {
+  window.location = "/#/login";
+}
+
+function navigateToSignup() {
+  window.location = "/#/signup";
+}
 </script>
 
 <div class="grid-container">
@@ -33,8 +41,8 @@ function navigateToEvent(eventID) {
     <ButtonDropdown>
       <DropdownToggle color="primary" caret>Profile</DropdownToggle>
       <DropdownMenu>
-        <DropdownItem>Login</DropdownItem>
-        <DropdownItem>Signup</DropdownItem>
+        <DropdownItem on:click{navigateToLogin()}>Login</DropdownItem>
+        <DropdownItem on:click{navigateToSignup()>Signup</DropdownItem>
         <DropdownItem>Help</DropdownItem>
         <DropdownItem>Contact</DropdownItem>
       </DropdownMenu>
@@ -43,7 +51,7 @@ function navigateToEvent(eventID) {
   <div class="grid-item" id="topnav">
     <input type="text" placeholder="Search.." />
   </div>
-  <div class="grid-item">
+  <div class="grid-item" id="join">
     <Button color="danger" on:click={toggle}>Join Code</Button>
     <Modal isOpen={open} {toggle}>
       <ModalBody>
@@ -90,6 +98,8 @@ function navigateToEvent(eventID) {
 <style>
 /* Add a black background color to the top navigation bar */
 #topnav {
+  margin-top: 2rem;
+  margin-left: 2rem;
   overflow: hidden;
   border: black;
 }
@@ -97,23 +107,9 @@ function navigateToEvent(eventID) {
 /* Style the search box inside the navigation bar */
 #topnav input[type="text"] {
   float: left;
-  border: none;
+  border: black;
   font-size: 17px;
   color: black;
-}
-
-/* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
-@media screen and (max-width: 600px) {
-  #topnav input[type="text"] {
-    float: none;
-    display: block;
-    text-align: left;
-    width: 100%;
-    color: black;
-  }
-  #topnav input[type="text"] {
-    border: 1px solid rgb(14, 13, 13);
-  }
 }
 
 #events {
@@ -130,8 +126,13 @@ function navigateToEvent(eventID) {
 }
 
 #dropdown {
-  margin: 0;
+  margin-top: 2rem;
+  margin-right: 2rem;
   float: right;
+}
+
+#join {
+  margin-top: 0;
 }
 
 .recommended {
