@@ -10,6 +10,17 @@ import {
   DropdownMenu,
   DropdownToggle,
 } from "sveltestrap";
+
+import { Modal, ModalBody, ModalFooter, ModalHeader } from "sveltestrap";
+let open = false;
+const toggle = () => (open = !open);
+
+function getEventID(pin) {
+  return "HackUTD!";
+}
+function navigateToEvent(eventID) {
+  //goto eventID page
+}
 </script>
 
 <div class="grid-container">
@@ -27,7 +38,18 @@ import {
   <div class="grid-item" id="topnav">
     <input type="text" placeholder="Search.." />
   </div>
-  <div class="grid-item">Home</div>
+  <div class="grid-item">
+    <Button color="danger" on:click={toggle}>Join Code</Button>
+    <Modal isOpen={open} {toggle}>
+      <ModalBody>
+        <input type="text" placeholder="Search.." />
+      </ModalBody>
+      <ModalFooter>
+        <Button color="primary" on:click={toggle}>Do Something</Button>
+        <Button color="secondary" on:click={toggle}>Cancel</Button>
+      </ModalFooter>
+    </Modal>
+  </div>
 </div>
 
 <div class="ListContainer">
