@@ -2,17 +2,17 @@
 //Will need to be passed jsom object of event
 
 //export let public;
-export let title;
-export let description;
-export let maxteamsize;
-export let maxparticipants;
-export let start;
-export let end;
-export let owner;
-export let teams;
-export let tags;
-
+let event = {};
+export let params;
 import { Button, Icon } from "sveltestrap";
+import { onMount } from "svelte";
+import { getEvent } from "./helper/API";
+onMount(async () => {
+  if (params.eventid) {
+    event = await getEvent(params.eventid);
+    console.log(event);
+  }
+});
 </script>
 
 <div id="join">
@@ -20,11 +20,15 @@ import { Button, Icon } from "sveltestrap";
 </div>
 
 <div>
-  <h1>{title}</h1>
+  <h1>{event?.title}</h1>
 </div>
 
 <div>
-  <p>{description}</p>
+  <p>{event?.description}</p>
+</div>
+
+<div>
+  {JSON.stringify(event)}
 </div>
 
 <style>
