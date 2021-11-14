@@ -7,6 +7,8 @@ export let params;
 import { Button, Icon } from "sveltestrap";
 import { onMount } from "svelte";
 import { getEvent } from "./helper/API";
+import { getDateString } from "./helper/date";
+import Project from "./components/Project.svelte";
 onMount(async () => {
   if (params.eventid) {
     event = await getEvent(params.eventid);
@@ -27,9 +29,24 @@ onMount(async () => {
   <p>{event?.description}</p>
 </div>
 
-<div>
-  {JSON.stringify(event)}
-</div>
+{#if event.start && event.end}
+  <div>
+    {getDateString(event.start)}
+    -
+    {getDateString(event.end)}
+  </div>
+{/if}
+
+{#if event.teams && event.teams.length > 0}
+  {#each event.teams as team}
+    <Project
+      team_id={team.team_id}
+      teammates={team.teammates}
+      description={team.description}
+      lookingfor={team.looking_for}
+      student_skills={team.student_skills} />
+  {/each}
+{/if}
 
 <style>
 p {
