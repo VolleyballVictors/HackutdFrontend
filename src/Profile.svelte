@@ -23,16 +23,19 @@ p
 
 }
 
-.profile
+.Profile
 {
-
+  margin-top: 5rem;
+  padding-top: 0rem;
+  margin-bottom:25rem;
+  margin-left: 20rem;
+  margin-right: 20rem;
 
 }
 
 </style>
 
-<div class = "Profile Page">
-{
+<div class = "Profile">
 
 
   <h1 class="display-4">Hello!</h1>
