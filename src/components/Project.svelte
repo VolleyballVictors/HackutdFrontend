@@ -4,6 +4,7 @@ export let teammates;
 export let description;
 export let lookingfor;
 export let student_skills;
+export let maxteamsize = -1;
 import { ListGroup, ListGroupItem } from "sveltestrap";
 import {
   Button,
@@ -23,7 +24,15 @@ import Chips from "./chips.svelte";
     <CardTitle>{team_id}</CardTitle>
   </CardHeader>
   <CardBody>
-    <CardSubtitle>{teammates.length} members</CardSubtitle>
+    {#if maxteamsize && maxteamsize > -1}
+      <CardSubtitle>{teammates.length}/{maxteamsize} members</CardSubtitle>
+    {:else}
+      <CardSubtitle>{teammates.length} members</CardSubtitle>
+    {/if}
+
+    <CardText>
+      {description}
+    </CardText>
     <CardText>
       Looking for: <Chips arr={[...lookingfor]} />
     </CardText>
@@ -42,5 +51,6 @@ import Chips from "./chips.svelte";
 <style>
 .card {
   margin: 0.5rem 1rem;
+  max-width: 360px;
 }
 </style>

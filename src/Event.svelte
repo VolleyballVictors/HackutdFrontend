@@ -38,14 +38,17 @@ onMount(async () => {
 {/if}
 
 {#if event.teams && event.teams.length > 0}
-  {#each event.teams as team}
-    <Project
-      team_id={team.team_id}
-      teammates={team.teammates}
-      description={team.description}
-      lookingfor={team.looking_for}
-      student_skills={team.student_skills} />
-  {/each}
+  <div class="cardcontainer">
+    {#each event.teams as team}
+      <Project
+        team_id={team.team_id}
+        teammates={team.teammates}
+        description={team.description}
+        lookingfor={team.looking_for}
+        student_skills={team.student_skills}
+        maxteamsize={event.maxteamsize} />
+    {/each}
+  </div>
 {/if}
 
 <style>
@@ -59,5 +62,11 @@ h1 {
 #join {
   float: right;
   margin: 2rem;
+}
+
+.cardcontainer {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-around;
 }
 </style>
