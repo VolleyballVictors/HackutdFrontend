@@ -16,22 +16,27 @@ let open = false;
 const toggle = () => (open = !open);
 
 function getEventID(pin) {
-  return "HackUTD!";
+  //events["pin" == pin];
+  return "undefined";
+}
+function addPrivilege(user, eventID) {
+  //give user access to the private event
 }
 function navigateToEvent(eventID) {
   //goto eventID page
+  window.location = "/#/event/" + "undefined";
 }
 </script>
 
 <div class="grid-container">
   <div class="grid-item" id="dropdown">
     <ButtonDropdown>
-      <DropdownToggle color="primary" caret>:</DropdownToggle>
+      <DropdownToggle color="primary" caret>Profile</DropdownToggle>
       <DropdownMenu>
-        <DropdownItem>Some Action</DropdownItem>
-        <DropdownItem>Foo Action</DropdownItem>
-        <DropdownItem>Bar Action</DropdownItem>
-        <DropdownItem>Quo Action</DropdownItem>
+        <DropdownItem>Login</DropdownItem>
+        <DropdownItem>Signup</DropdownItem>
+        <DropdownItem>Help</DropdownItem>
+        <DropdownItem>Contact</DropdownItem>
       </DropdownMenu>
     </ButtonDropdown>
   </div>
@@ -45,14 +50,20 @@ function navigateToEvent(eventID) {
         <input type="text" placeholder="Search.." />
       </ModalBody>
       <ModalFooter>
-        <Button color="primary" on:click={toggle}>Do Something</Button>
+        <Button
+          color="primary"
+          on:click={(addPrivilege("", ""), navigateToEvent(getEventID("")))}
+          >Join</Button>
         <Button color="secondary" on:click={toggle}>Cancel</Button>
       </ModalFooter>
     </Modal>
   </div>
 </div>
 
-<div class="ListContainer">
+<br />
+
+<div class="recommended">
+  Recommended
   {#each events as item}
     <ListComponent title={item.title} description={item.description} />
   {/each}
@@ -60,10 +71,20 @@ function navigateToEvent(eventID) {
 
 <br />
 
-<div class="ListContainer">
-  {#each events as item}
-    <ListComponent title={item.title} description={item.description} />
-  {/each}
+<div class="grid-container">
+  <div class="grid-item" id="events">
+    Events
+    {#each events as item}
+      <ListComponent title={item.title} description={item.description} />
+    {/each}
+  </div>
+
+  <div class="grid-item" id="projects">
+    Projects
+    {#each events as item}
+      <ListComponent title={item.title} description={item.description} />
+    {/each}
+  </div>
 </div>
 
 <style>
@@ -76,10 +97,7 @@ function navigateToEvent(eventID) {
 /* Style the search box inside the navigation bar */
 #topnav input[type="text"] {
   float: left;
-  padding: 6px;
   border: none;
-  margin-top: 8px;
-  margin-right: 16px;
   font-size: 17px;
   color: black;
 }
@@ -91,8 +109,6 @@ function navigateToEvent(eventID) {
     display: block;
     text-align: left;
     width: 100%;
-    margin: 0;
-    padding: 14px;
     color: black;
   }
   #topnav input[type="text"] {
@@ -100,13 +116,26 @@ function navigateToEvent(eventID) {
   }
 }
 
-.ListContainer {
-  max-width: 100%;
-  max-height: 30rem;
+#events {
+  float: left;
+  max-width: 50%;
+  max-height: 25rem;
+  overflow-y: auto;
+}
+#projects {
+  float: right;
+  max-width: 50%;
+  max-height: 25rem;
   overflow-y: auto;
 }
 
 #dropdown {
+  margin: 0;
   float: right;
+}
+
+.recommended {
+  max-height: 15rem;
+  overflow-y: auto;
 }
 </style>
