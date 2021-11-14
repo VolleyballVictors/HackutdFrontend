@@ -3,7 +3,13 @@ import Router, { location, link } from "svelte-spa-router";
 import Home from "./Home.svelte";
 import Test from "./Test.svelte";
 import Event from "./Event.svelte";
+
+import Tailwindcss from './Tailwindcss.svelte';
+
 </script>
+
+<Tailwindcss />
+
 
 <main>
   <nav>
@@ -15,9 +21,10 @@ import Event from "./Event.svelte";
   <div class="Router">
     <Router
       routes={{
-        "/": Home,
+        "/": Login,
         "/test": Test,
         "/event/:eventid": Event,
+
       }} />
   </div>
 </main>
