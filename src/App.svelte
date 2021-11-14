@@ -13,7 +13,7 @@ import Profile from "./Profile.svelte";
     <a href="/">Home</a>
     <a href="/#/Login">Login</a>
     <a href="/#/Signup">Sign Up!</a>
-    <a href="/#/event/HackUTD">HackUTD event page</a>
+    <a href="/#/event/hackutd">HackUTD event page</a>
     <a href="/#/Profile">Profile</a>
   </nav>
   <div class="Router">
